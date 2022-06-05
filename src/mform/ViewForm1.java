@@ -16,7 +16,7 @@ import mform.form.CompanyForm;
  * @author duta
  */
 public class ViewForm1 extends javax.swing.JFrame {
-
+//shdfoksahfjkhsdfshk
     /**
      * Creates new form ViewForm
      */
