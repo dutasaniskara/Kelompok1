@@ -4,11 +4,21 @@
  */
 package mform.view;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import mform.Database;
+import mform.QueryWilayah;
+import mform.ViewForm;
 import mform.entity.BadanHukum;
 import mform.entity.Company;
 import mform.entity.KIP;
+import mform.entity.KabKot;
 import mform.form.CompanyForm;
 /**
  *
@@ -21,6 +31,24 @@ public class Entry extends javax.swing.JFrame {
      */
     public Entry() {
         initComponents();
+        BindCombo();
+    }
+    
+     public void BindCombo(){
+        QueryWilayah qw = new QueryWilayah();
+        Connection con =  qw.getConnection();
+        Statement st;
+        ResultSet rs;
+        
+        try {
+            st = con.createStatement();
+                rs = st.executeQuery("SELECT `id`, `name` FROM `provinces`");
+            while(rs.next()){
+                namaProvComboBox.addItem(rs.getString("name"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewForm.class.getName()).log(Level.SEVERE, null, ex);
+        }   
     }
 
     /**
@@ -161,7 +189,6 @@ public class Entry extends javax.swing.JFrame {
         simpanButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1366, 768));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(1366, 768));
@@ -256,7 +283,7 @@ public class Entry extends javax.swing.JFrame {
             .addGroup(masterDPPPanelLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel5)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         masterDPPPanelLayout.setVerticalGroup(
             masterDPPPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +312,7 @@ public class Entry extends javax.swing.JFrame {
             .addGroup(entriPanelLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(jLabel3)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         entriPanelLayout.setVerticalGroup(
             entriPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +340,7 @@ public class Entry extends javax.swing.JFrame {
             .addGroup(berandaPanelLayout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(jLabel4)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         berandaPanelLayout.setVerticalGroup(
             berandaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,9 +350,17 @@ public class Entry extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        namaProvComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "[32] JAWA BARAT", "[] JAWA TIMUR" }));
+        namaProvComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namaProvComboBoxActionPerformed(evt);
+            }
+        });
 
-        namaKabComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "[01] BOGOR", "[02] SUKABUMI" }));
+        namaKabComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namaKabComboBoxActionPerformed(evt);
+            }
+        });
 
         periodeDataTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -550,8 +585,7 @@ public class Entry extends javax.swing.JFrame {
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(noUrutKabTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(namaPerusahaanTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)))
+                                        .addComponent(namaPerusahaanTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(alamatPerusahaanTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7))
@@ -1016,6 +1050,30 @@ public class Entry extends javax.swing.JFrame {
     private void periodeDataTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_periodeDataTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_periodeDataTextFieldActionPerformed
+
+    private void namaProvComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaProvComboBoxActionPerformed
+        namaKabComboBox.removeAllItems();
+        QueryWilayah qw = new QueryWilayah();
+        
+        //Memasukkan daftar kab/kot ke combo box
+        ArrayList<KabKot> listKabKot = qw.getKabKot(qw.getProvId((String) namaProvComboBox.getSelectedItem()));
+        
+        for(int i = 0; i < listKabKot.size(); i++){
+            namaKabComboBox.addItem(listKabKot.get(i).getName());
+        }
+        
+        //Otomatis set text field kode prov
+        kodeProvTextField.setText(Integer.toString(qw.getProvId((String) namaProvComboBox.getSelectedItem())));
+        kodeProvTextField1.setText(Integer.toString(qw.getProvId((String) namaProvComboBox.getSelectedItem())));
+    }//GEN-LAST:event_namaProvComboBoxActionPerformed
+
+    private void namaKabComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaKabComboBoxActionPerformed
+        QueryWilayah qw = new QueryWilayah();
+        
+        //Otomatis set text field kode kab
+        kodeKabTextField.setText(Integer.toString(qw.getKabKotId((String) namaKabComboBox.getSelectedItem())).substring(2, 4));
+        kodeKabTextField1.setText(Integer.toString(qw.getKabKotId((String) namaKabComboBox.getSelectedItem())).substring(2, 4));
+    }//GEN-LAST:event_namaKabComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
