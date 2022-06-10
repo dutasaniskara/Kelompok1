@@ -5,7 +5,7 @@
 package mform.view;
 
 import javax.swing.JOptionPane;
-import mform.Database;
+import mform.db.Database;
 
 /**
  *

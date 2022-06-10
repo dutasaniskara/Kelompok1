@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-import mform.entity.BadanHukum;
-import mform.entity.Company;
-import mform.entity.KIP;
+import mform.model.BadanHukum;
+import mform.model.Company;
+import mform.model.KIP;
 import mform.form.CompanyForm;
 
 public class Main {

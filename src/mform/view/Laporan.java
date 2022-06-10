@@ -5,10 +5,10 @@
 package mform.view;
 
 import javax.swing.JOptionPane;
-import mform.Database;
-import mform.entity.BadanHukum;
-import mform.entity.Company;
-import mform.entity.KIP;
+import mform.db.Database;
+import mform.model.BadanHukum;
+import mform.model.Company;
+import mform.model.KIP;
 import mform.form.CompanyForm;
 /**
  *

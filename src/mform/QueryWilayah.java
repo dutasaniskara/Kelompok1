@@ -13,8 +13,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import mform.entity.KabKot;
-import mform.entity.Kecamatan;
+import mform.model.KabKot;
+import mform.model.Kecamatan;
 
 /**
  *

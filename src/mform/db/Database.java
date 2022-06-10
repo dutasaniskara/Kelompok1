@@ -2,16 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package mform;
+package mform.db;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
-import mform.entity.BadanHukum;
-import mform.entity.Company;
-import mform.entity.KIP;
+import mform.model.BadanHukum;
+import mform.model.Company;
+import mform.model.KIP;
 import mform.form.CompanyForm;
+import mform.model.User;
 
 /**
  *
@@ -36,6 +37,46 @@ public class Database implements Serializable{
             instance = new Database();
         }
         return instance;
+    }
+    
+    public void insertUser(User user) throws SQLException {
+        Connection conn = getConnection();
+        try {
+            String sql="INSERT INTO user VALUES(NULL,?,?,?,?,?)";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, user.getName());
+            pstmt.setString(2, user.getEmail());
+            pstmt.setString(3, user.getUsername());
+            pstmt.setString(4, user.getPassword());
+            pstmt.setInt(5, user.getJumlahEntri());
+            pstmt.executeUpdate();
+        } catch(SQLException ex) {
+            throw ex;
+        } finally{
+            if(conn!=null) {
+                conn.close();
+            }        
+        }
+    }
+    
+    public void loginUser(User user) throws SQLException {
+        Connection conn = getConnection();
+        try {
+            String  sql = "SELECT * FROM user WHERE username='"+user.getUsername()+"' AND password='"+user.getPassword()+"'";
+            Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rsLogin = st.executeQuery(sql);
+
+            rsLogin.next();
+            rsLogin.last();
+            user.setStatusLogin(rsLogin.getRow());
+
+        } catch(SQLException ex) {
+            throw ex;
+        } finally{
+            if(conn!=null) {
+                conn.close();
+            }        
+        }
     }
     
     public void insertCompany(CompanyForm companyform, Company company, KIP kip, BadanHukum badanhukum) throws SQLException{

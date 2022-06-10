@@ -4,6 +4,7 @@
  */
 package mform;
 
+import mform.db.Database;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,10 +14,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-import mform.entity.BadanHukum;
-import mform.entity.Company;
-import mform.entity.KIP;
-import mform.entity.KabKot;
+import mform.model.BadanHukum;
+import mform.model.Company;
+import mform.model.KIP;
+import mform.model.KabKot;
 import mform.form.CompanyForm;
 
 /**

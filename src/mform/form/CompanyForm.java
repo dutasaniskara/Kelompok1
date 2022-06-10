@@ -1,6 +1,6 @@
 package mform.form;
 
-import mform.entity.Company;
+import mform.model.Company;
 
 public class CompanyForm extends Form {
     private String kodeProv;

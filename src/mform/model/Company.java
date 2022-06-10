@@ -1,4 +1,4 @@
-package mform.entity;
+package mform.model;
 
 import java.util.HashMap;
 

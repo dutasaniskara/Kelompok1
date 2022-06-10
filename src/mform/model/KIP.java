@@ -1,4 +1,4 @@
-package mform.entity;
+package mform.model;
 
 public class KIP {
     private String kodeProv;
