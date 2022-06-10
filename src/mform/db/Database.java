@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
+import mform.Session;
 import mform.model.BadanHukum;
 import mform.model.Company;
 import mform.model.KIP;
@@ -79,6 +80,49 @@ public class Database implements Serializable{
         }
     }
     
+    public int getUserTotalInput(String username) throws SQLException {
+        Connection conn = getConnection();
+        Statement st;
+        ResultSet rs;
+        int total = 0;
+        
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery("SELECT `jumlahEntri` FROM user WHERE `username` = '" + username + "'");
+            
+            while (rs.next()) {
+                total = rs.getInt("jumlahEntri");  
+            }
+            
+        }catch(SQLException ex) {
+            throw ex;
+        } finally{
+            if(conn!=null) {
+                conn.close();
+            }        
+        }
+        
+        return total;  
+    }
+    
+    
+    public void updateUserTotalInput(String username) throws SQLException {
+        Connection conn = getConnection();
+        try {
+            String sql="UPDATE user SET jumlahEntri = ? WHERE username = ? ";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, getUserTotalInput(username) + 1);
+            pstmt.setString(2, username);
+            pstmt.executeUpdate();
+        } catch(SQLException ex) {
+            throw ex;
+        } finally{
+            if(conn!=null) {
+                conn.close();
+            }        
+        }
+    }
+       
     public void insertCompany(CompanyForm companyform, Company company, KIP kip, BadanHukum badanhukum) throws SQLException{
         Connection conn = getConnection();
         try{
@@ -108,6 +152,8 @@ public class Database implements Serializable{
             pstmt.setString(22, company.getPerikanan());  
             pstmt.setString(23, company.getInputUsahaUtama());     
             pstmt.executeUpdate(); 
+            
+            updateUserTotalInput(Session.getUsername());
 
         } catch(SQLException ex) {
             throw ex;
@@ -116,6 +162,31 @@ public class Database implements Serializable{
                 conn.close();
             }        
         }
+    }
+    
+    public int getTotalData() throws SQLException {
+        Connection conn = getConnection();
+        Statement st;
+        ResultSet rs;
+        int total = 0;
+        
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery("SELECT COUNT(*) AS total FROM perusahaan");
+            
+            while (rs.next()) {
+                total = rs.getInt("total");  
+            }
+            
+        }catch(SQLException ex) {
+            throw ex;
+        } finally{
+            if(conn!=null) {
+                conn.close();
+            }        
+        }
+        
+        return total;  
     }
     
 //    public List<Responden> getListResponden() throws SQLException{
@@ -154,4 +225,6 @@ public class Database implements Serializable{
         return DriverManager.getConnection("jdbc:"+DB_TYPE+"://"+DB_HOST+":"+DB_PORT+
                 "/"+DB_NAME,DB_USER,DB_PASS);
     }
+    
+ 
 }
