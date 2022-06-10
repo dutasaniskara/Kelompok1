@@ -6,8 +6,6 @@ package mform.view;
 
 import mform.db.Database;
 import mform.model.User;
-import java.awt.CardLayout;
-import java.awt.Container;
 import javax.swing.JOptionPane;
 import java.sql.*;
 
@@ -46,7 +44,7 @@ public class LoginForm extends javax.swing.JFrame {
         usernameTextField = new javax.swing.JTextField();
         loginButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        registrasiButton = new javax.swing.JButton();
+        daftarButton = new javax.swing.JButton();
         passwordPasswordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,12 +120,8 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(8, 129, 120));
         jLabel3.setText("Password");
 
-        usernameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        usernameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameTextFieldActionPerformed(evt);
-            }
-        });
+        usernameTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
         usernameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 usernameTextFieldKeyPressed(evt);
@@ -136,11 +130,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         loginButton.setText("Login");
         loginButton.setPreferredSize(new java.awt.Dimension(80, 25));
-        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginButtonMouseClicked(evt);
-            }
-        });
+
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
@@ -152,21 +142,17 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(8, 129, 120));
         jLabel8.setText("Belum punya akun?");
 
-        registrasiButton.setText("Daftar");
-        registrasiButton.setMinimumSize(new java.awt.Dimension(80, 25));
-        registrasiButton.setPreferredSize(new java.awt.Dimension(80, 25));
-        registrasiButton.addActionListener(new java.awt.event.ActionListener() {
+        daftarButton.setText("Daftar");
+        daftarButton.setMinimumSize(new java.awt.Dimension(80, 25));
+        daftarButton.setPreferredSize(new java.awt.Dimension(80, 25));
+        daftarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrasiButtonActionPerformed(evt);
+                daftarButtonActionPerformed(evt);
             }
         });
 
-        passwordPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        passwordPasswordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordPasswordFieldActionPerformed(evt);
-            }
-        });
+        passwordPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+ 
         passwordPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 passwordPasswordFieldKeyPressed(evt);
@@ -189,7 +175,7 @@ public class LoginForm extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addComponent(passwordPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8))
-                    .addComponent(registrasiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(daftarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(366, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -201,18 +187,18 @@ public class LoginForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(passwordPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(registrasiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addComponent(daftarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(261, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -225,7 +211,7 @@ public class LoginForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
+        
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -254,19 +240,25 @@ public class LoginForm extends javax.swing.JFrame {
         try {
             Database.getInstance().loginUser(userLogin);
             if (userLogin.getStatusLogin()!= 0) {
-                
-             };
+                Beranda b = new Beranda();
+                b.show();
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Username atau Password salah");
+            }
             System.out.println(userLogin.getStatusLogin());
         } catch (java.sql.SQLException ex) {
             System.err. println(ex);
-            JOptionPane.showMessageDialog(this, "negatif",
-                "Gagal", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Periksa Koneksi Anda", "Gagal", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    private void registrasiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrasiButtonActionPerformed
+    private void daftarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_registrasiButtonActionPerformed
+        RegistrasiForm r = new RegistrasiForm();
+        r.show();
+        dispose();
+    }//GEN-LAST:event_daftarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,6 +273,7 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton daftarButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -294,7 +287,6 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JButton loginButton;
     private javax.swing.JPasswordField passwordPasswordField;
-    private javax.swing.JButton registrasiButton;
     private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 }

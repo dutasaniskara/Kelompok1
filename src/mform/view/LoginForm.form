@@ -59,7 +59,7 @@
                           <Component id="passwordPasswordField" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="registrasiButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="daftarButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="366" max="32767" attributes="0"/>
               </Group>
@@ -74,18 +74,18 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="usernameTextField" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="usernameTextField" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="passwordPasswordField" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="passwordPasswordField" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="loginButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="registrasiButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="251" max="32767" attributes="0"/>
+                  <Component id="daftarButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="261" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -238,7 +238,7 @@
         <Component class="javax.swing.JTextField" name="usernameTextField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="14" style="0"/>
             </Property>
           </Properties>
           <Events>
@@ -272,7 +272,7 @@
             <Property name="text" type="java.lang.String" value="Belum punya akun?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="registrasiButton">
+        <Component class="javax.swing.JButton" name="daftarButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Daftar"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -283,13 +283,13 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registrasiButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="daftarButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="passwordPasswordField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="14" style="0"/>
             </Property>
           </Properties>
           <Events>
