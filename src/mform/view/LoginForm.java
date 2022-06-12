@@ -8,6 +8,7 @@ import mform.db.Database;
 import mform.model.User;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import mform.Session;
 
 /**
  *
@@ -243,6 +244,8 @@ public class LoginForm extends javax.swing.JFrame {
                 Beranda b = new Beranda();
                 b.show();
                 dispose();
+                //Menyimpan username User yang sedang login
+                Session.setUsername(usernameTextField.getText());
             } else {
                 JOptionPane.showMessageDialog(this, "Username atau Password salah");
             }
@@ -252,7 +255,7 @@ public class LoginForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Periksa Koneksi Anda", "Gagal", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
-
+   
     private void daftarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarButtonActionPerformed
         // TODO add your handling code here:
         RegistrasiForm r = new RegistrasiForm();

@@ -322,7 +322,7 @@ public class RegistrasiForm extends javax.swing.JFrame {
         user.setEmail(emailTextField.getText());
         user.setUsername(usernameTextField.getText());
         user.setPassword(new String(passwordPasswordField.getPassword()));
-        user.setJumlahEntri(1);
+        user.setJumlahEntri(0);
        try {
             Database.getInstance().insertUser(user);
             JOptionPane.showMessageDialog(this, "Akun telah dibuat");

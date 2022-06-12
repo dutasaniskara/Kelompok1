@@ -4,23 +4,39 @@
  */
 package mform.view;
 
-import javax.swing.JOptionPane;
+
+import mform.Session;
 import mform.db.Database;
-import mform.model.BadanHukum;
-import mform.model.Company;
-import mform.model.KIP;
-import mform.form.CompanyForm;
+
 /**
  *
  * @author duta
  */
 public class Laporan extends javax.swing.JFrame {
-
+//    String username = Session.getUsername();
     /**
      * Creates new form Entry
      */
     public Laporan() {
         initComponents();
+        setUserTotalInput();
+    }
+    
+    public void setUserTotalInput() {
+        //Default Total
+       int total = 0;
+       
+       try {
+           total = Database.getInstance().getUserTotalInput(Session.getUsername());
+        } catch (java.sql.SQLException ex) {
+            System.err. println(ex);
+        }
+        //Total data yang telah dientri oleh User
+        totalEntriLabel.setText(Integer.toString(total));
+        
+        //Mengatur insentif yang diperoleh User
+        int insentif = total*10000;
+        insentifLabel.setText(Integer.toString(insentif)); 
     }
 
     /**
@@ -48,11 +64,12 @@ public class Laporan extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        totalEntriLabel = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        insentifLabel = new javax.swing.JLabel();
+        rupiahLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,7 +172,7 @@ public class Laporan extends javax.swing.JFrame {
             .addGroup(masterDPPPanelLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel5)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         masterDPPPanelLayout.setVerticalGroup(
             masterDPPPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +200,7 @@ public class Laporan extends javax.swing.JFrame {
             .addGroup(entryPanelLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(jLabel3)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         entryPanelLayout.setVerticalGroup(
             entryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +229,7 @@ public class Laporan extends javax.swing.JFrame {
             .addGroup(berandaPanelLayout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(jLabel4)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         berandaPanelLayout.setVerticalGroup(
             berandaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,9 +245,9 @@ public class Laporan extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("DATA YANG SUDAH ANDA ENTRI");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setText("37");
+        totalEntriLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        totalEntriLabel.setForeground(new java.awt.Color(102, 102, 102));
+        totalEntriLabel.setText("37");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -238,14 +255,14 @@ public class Laporan extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(176, 176, 176)
-                .addComponent(jLabel8)
+                .addComponent(totalEntriLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8)
+                .addComponent(totalEntriLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -274,25 +291,33 @@ public class Laporan extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("INSENTIF YANG AKAN ANDA TERIMA");
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel10.setText("Rp 370.000");
+        insentifLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        insentifLabel.setForeground(new java.awt.Color(102, 102, 102));
+        insentifLabel.setText("10000");
+
+        rupiahLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        rupiahLabel.setForeground(new java.awt.Color(102, 102, 102));
+        rupiahLabel.setText("Rp.");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jLabel10)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(rupiahLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(insentifLabel)
+                .addGap(167, 167, 167))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(insentifLabel)
+                    .addComponent(rupiahLabel))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -330,7 +355,7 @@ public class Laporan extends javax.swing.JFrame {
                 .addComponent(laporanPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(keluarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
+                .addGap(0, 3, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(223, 223, 223)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -452,15 +477,14 @@ public class Laporan extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel berandaPanel;
     private javax.swing.JPanel entryPanel;
+    private javax.swing.JLabel insentifLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -471,5 +495,7 @@ public class Laporan extends javax.swing.JFrame {
     private javax.swing.JPanel keluarPanel;
     private javax.swing.JPanel laporanPanel;
     private javax.swing.JPanel masterDPPPanel;
+    private javax.swing.JLabel rupiahLabel;
+    private javax.swing.JLabel totalEntriLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -49,7 +49,7 @@ public class QueryWilayah {
         
         try {
             st =  con.createStatement();
-             rs = st.executeQuery("SELECT `id`, `name`, `province_id` FROM `regencies` WHERE `province_id` = " + provId );
+            rs = st.executeQuery("SELECT `id`, `name`, `province_id` FROM `regencies` WHERE `province_id` = " + provId );
             KabKot k;
             while (rs.next()) {
                 k = new KabKot(
