@@ -62,6 +62,8 @@ public class MasterDPP extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelDisplay = new javax.swing.JTable();
         exportTable = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        exportTable1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -248,10 +250,19 @@ public class MasterDPP extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelDisplay);
 
-        exportTable.setText("Export to CSV");
+        exportTable.setText("All Column");
         exportTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportTableActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Eksport to CSV");
+
+        exportTable1.setText("This Column");
+        exportTable1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportTable1ActionPerformed(evt);
             }
         });
 
@@ -272,16 +283,24 @@ public class MasterDPP extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(keluarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 4, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(525, 525, 525))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(exportTable)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(exportTable1)
+                        .addGap(18, 18, 18)
+                        .addComponent(exportTable)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(525, 525, 525))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(124, 124, 124))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,8 +317,12 @@ public class MasterDPP extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(exportTable, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addComponent(jLabel8)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(exportTable, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exportTable1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -354,9 +377,15 @@ public class MasterDPP extends javax.swing.JFrame {
     }//GEN-LAST:event_keluarPanelKeyPressed
 
     private void exportTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTableActionPerformed
-        Export excel = new Export();;
+        Export excel = new Export();
         excel.export(tabelDisplay);
     }//GEN-LAST:event_exportTableActionPerformed
+
+    private void exportTable1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTable1ActionPerformed
+        // TODO add your handling code here:
+        Export excel = new Export();
+        excel.saveCSV(tabelDisplay);
+    }//GEN-LAST:event_exportTable1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -400,6 +429,7 @@ public class MasterDPP extends javax.swing.JFrame {
     private javax.swing.JPanel berandaPanel;
     private javax.swing.JPanel entryPanel;
     private javax.swing.JButton exportTable;
+    private javax.swing.JButton exportTable1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -407,6 +437,7 @@ public class MasterDPP extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
