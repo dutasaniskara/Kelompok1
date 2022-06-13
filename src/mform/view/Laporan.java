@@ -5,6 +5,7 @@
 package mform.view;
 
 
+import javax.swing.JOptionPane;
 import mform.Session;
 import mform.db.Database;
 
@@ -172,7 +173,7 @@ public class Laporan extends javax.swing.JFrame {
             .addGroup(masterDPPPanelLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel5)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         masterDPPPanelLayout.setVerticalGroup(
             masterDPPPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +201,7 @@ public class Laporan extends javax.swing.JFrame {
             .addGroup(entryPanelLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(jLabel3)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         entryPanelLayout.setVerticalGroup(
             entryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,7 +230,7 @@ public class Laporan extends javax.swing.JFrame {
             .addGroup(berandaPanelLayout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(jLabel4)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         berandaPanelLayout.setVerticalGroup(
             berandaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,16 +248,17 @@ public class Laporan extends javax.swing.JFrame {
 
         totalEntriLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         totalEntriLabel.setForeground(new java.awt.Color(102, 102, 102));
+        totalEntriLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         totalEntriLabel.setText("37");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(totalEntriLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(totalEntriLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(172, 172, 172))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,9 +308,9 @@ public class Laporan extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(rupiahLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(insentifLabel)
-                .addGap(167, 167, 167))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(insentifLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(59, 59, 59))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,7 +357,7 @@ public class Laporan extends javax.swing.JFrame {
                 .addComponent(laporanPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(keluarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(0, 4, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(223, 223, 223)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -427,9 +429,9 @@ public class Laporan extends javax.swing.JFrame {
 
     private void keluarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_keluarPanelMouseClicked
         // TODO add your handling code here:
-        LoginForm l = new LoginForm();
-        l.show();
-        dispose(); 
+        if(JOptionPane.showConfirmDialog(null,"Apakah Anda Yakin Keluar ?","Keluar",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+            System.exit(0);
+        } 
     }//GEN-LAST:event_keluarPanelMouseClicked
 
     /**

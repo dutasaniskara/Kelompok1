@@ -43,7 +43,7 @@ public class RegistrasiForm extends javax.swing.JFrame {
         nameTextField = new javax.swing.JTextField();
         daftarButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        registrasiButton = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
         passwordPasswordField = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
@@ -135,7 +135,7 @@ public class RegistrasiForm extends javax.swing.JFrame {
 
         daftarButton.setText("Daftar");
         daftarButton.setPreferredSize(new java.awt.Dimension(80, 25));
-
+ 
         daftarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 daftarButtonActionPerformed(evt);
@@ -147,9 +147,13 @@ public class RegistrasiForm extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(8, 129, 120));
         jLabel8.setText("Sudah punya akun?");
 
-        registrasiButton.setText("Login");
-        registrasiButton.setPreferredSize(new java.awt.Dimension(80, 25));
-
+        loginButton.setText("Login");
+        loginButton.setPreferredSize(new java.awt.Dimension(80, 25));
+        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginButtonMouseClicked(evt);
+            }
+        });
 
         passwordPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
  
@@ -191,7 +195,7 @@ public class RegistrasiForm extends javax.swing.JFrame {
         jLabel11.setText("Username");
 
         usernameTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
- 
+
         usernameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 usernameTextFieldKeyPressed(evt);
@@ -219,7 +223,7 @@ public class RegistrasiForm extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(daftarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(konfirmasiPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(registrasiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel8))
                 .addGap(296, 296, 296))
         );
@@ -256,7 +260,7 @@ public class RegistrasiForm extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(registrasiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -314,9 +318,34 @@ public class RegistrasiForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_konfirmasiPasswordFieldKeyPressed
 
+    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
+        // TODO add your handling code here:
+        LoginForm l = new LoginForm();
+        l.show();
+        dispose();
+    }//GEN-LAST:event_loginButtonMouseClicked
+
     
     private void daftarButtonActionPerformed(java.awt.event.ActionEvent evt) { 
         // TODO add your handling code here:
+        if (nameTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Nama belum terisi","Warning",JOptionPane.WARNING_MESSAGE);
+            nameTextField.requestFocus();
+        }else if (emailTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Email belum terisi","Warning",JOptionPane.WARNING_MESSAGE);
+            emailTextField.requestFocus();
+        }else if (usernameTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Username belum terisi","Warning",JOptionPane.WARNING_MESSAGE);
+            usernameTextField.requestFocus();    
+        }else if (passwordPasswordField.getPassword().length == 0){
+            JOptionPane.showMessageDialog(this, "Password belum terisi","Warning",JOptionPane.WARNING_MESSAGE);
+            passwordPasswordField.requestFocus();
+        }else if (konfirmasiPasswordField.getPassword().length == 0){
+            JOptionPane.showMessageDialog(this, "Konfirmasi Password belum terisi","Warning",JOptionPane.WARNING_MESSAGE);
+            konfirmasiPasswordField.requestFocus(); 
+        } else {
+        {     
+                
         User user = new User();
         user.setName(nameTextField.getText());
         user.setEmail(emailTextField.getText());
@@ -334,13 +363,10 @@ public class RegistrasiForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Akun gagal dibuat",
                 "Gagal", JOptionPane.ERROR_MESSAGE);
         }
+        }
+        }
     }  
     
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        LoginForm l = new LoginForm();
-        l.show();
-        dispose();       
-    }
     /**
      * @param args the command line arguments
      */
@@ -395,9 +421,9 @@ public class RegistrasiForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPasswordField konfirmasiPasswordField;
+    private javax.swing.JButton loginButton;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JPasswordField passwordPasswordField;
-    private javax.swing.JButton registrasiButton;
     private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 }

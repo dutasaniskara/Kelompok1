@@ -14,7 +14,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import mform.db.Database;
 import mform.QueryWilayah;
-import mform.ViewForm;
 import mform.model.BadanHukum;
 import mform.model.Company;
 import mform.model.KIP;
@@ -47,7 +46,7 @@ public class Entry extends javax.swing.JFrame {
                 namaProvComboBox.addItem(rs.getString("name"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ViewForm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Entry.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
 
@@ -147,8 +146,8 @@ public class Entry extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         noTextField2 = new javax.swing.JTextField();
-        kodeProvTextField3 = new javax.swing.JTextField();
-        kodeKabTextField3 = new javax.swing.JTextField();
+        kodeProvTextField2 = new javax.swing.JTextField();
+        kodeKabTextField2 = new javax.swing.JTextField();
         kodeKecTextField2 = new javax.swing.JTextField();
         kodeKJUTextField2 = new javax.swing.JTextField();
         noUrutKabTextField2 = new javax.swing.JTextField();
@@ -182,8 +181,8 @@ public class Entry extends javax.swing.JFrame {
         konfirmTextField3 = new javax.swing.JTextField();
         usahaUtamaTextField3 = new javax.swing.JTextField();
         noTextField3 = new javax.swing.JTextField();
-        kodeProvTextField4 = new javax.swing.JTextField();
-        kodeKabTextField4 = new javax.swing.JTextField();
+        kodeProvTextField3 = new javax.swing.JTextField();
+        kodeKabTextField3 = new javax.swing.JTextField();
         kodeKecTextField3 = new javax.swing.JTextField();
         kodeKJUTextField3 = new javax.swing.JTextField();
         simpanButton = new javax.swing.JButton();
@@ -370,6 +369,11 @@ public class Entry extends javax.swing.JFrame {
         periodeDataTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 periodeDataTextFieldActionPerformed(evt);
+            }
+        });
+        periodeDataTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                periodeDataTextFieldKeyPressed(evt);
             }
         });
 
@@ -622,6 +626,234 @@ public class Entry extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel30.setText("(18)");
 
+        noTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                noTextField2KeyPressed(evt);
+            }
+        });
+
+        kodeProvTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                kodeProvTextField2KeyPressed(evt);
+            }
+        });
+
+        kodeKabTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                kodeKabTextField2KeyPressed(evt);
+            }
+        });
+
+        kodeKecTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                kodeKecTextField2KeyPressed(evt);
+            }
+        });
+
+        kodeKJUTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                kodeKJUTextField2KeyPressed(evt);
+            }
+        });
+
+        noUrutKabTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                noUrutKabTextField2KeyPressed(evt);
+            }
+        });
+
+        namaPerusahaanTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                namaPerusahaanTextField2KeyPressed(evt);
+            }
+        });
+
+        alamatPerusahaanTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                alamatPerusahaanTextField2KeyPressed(evt);
+            }
+        });
+
+        noTelpTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                noTelpTextField2KeyPressed(evt);
+            }
+        });
+
+        noFaxTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                noFaxTextField2KeyPressed(evt);
+            }
+        });
+
+        badanHukumTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                badanHukumTextField2KeyPressed(evt);
+            }
+        });
+
+        konfirmTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                konfirmTextField2KeyPressed(evt);
+            }
+        });
+
+        statusTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                statusTextField2KeyPressed(evt);
+            }
+        });
+
+        tanamanPanganTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tanamanPanganTextField2KeyPressed(evt);
+            }
+        });
+
+        holtikulturaTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                holtikulturaTextField2KeyPressed(evt);
+            }
+        });
+
+        perkebunanTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                perkebunanTextField2KeyPressed(evt);
+            }
+        });
+
+        peternakanTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                peternakanTextField2KeyPressed(evt);
+            }
+        });
+
+        kehutananTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                kehutananTextField2KeyPressed(evt);
+            }
+        });
+
+        perikananTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                perikananTextField2KeyPressed(evt);
+            }
+        });
+
+        usahaUtamaTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usahaUtamaTextField2KeyPressed(evt);
+            }
+        });
+
+        alamatPerusahaanTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                alamatPerusahaanTextField3KeyPressed(evt);
+            }
+        });
+
+        statusTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                statusTextField3KeyPressed(evt);
+            }
+        });
+
+        noFaxTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                noFaxTextField3KeyPressed(evt);
+            }
+        });
+
+        noTelpTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                noTelpTextField3KeyPressed(evt);
+            }
+        });
+
+        noUrutKabTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                noUrutKabTextField3KeyPressed(evt);
+            }
+        });
+
+        namaPerusahaanTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                namaPerusahaanTextField3KeyPressed(evt);
+            }
+        });
+
+        peternakanTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                peternakanTextField3KeyPressed(evt);
+            }
+        });
+
+        kehutananTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                kehutananTextField3KeyPressed(evt);
+            }
+        });
+
+        holtikulturaTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                holtikulturaTextField3KeyPressed(evt);
+            }
+        });
+
+        tanamanPanganTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tanamanPanganTextField3KeyPressed(evt);
+            }
+        });
+
+        perikananTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                perikananTextField3KeyPressed(evt);
+            }
+        });
+
+        badanHukumTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                badanHukumTextField3KeyPressed(evt);
+            }
+        });
+
+        perkebunanTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                perkebunanTextField3KeyPressed(evt);
+            }
+        });
+
+        konfirmTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                konfirmTextField3KeyPressed(evt);
+            }
+        });
+
+        usahaUtamaTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usahaUtamaTextField3KeyPressed(evt);
+            }
+        });
+
+        noTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                noTextField3KeyPressed(evt);
+            }
+        });
+
+        kodeKecTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                kodeKecTextField3KeyPressed(evt);
+            }
+        });
+
+        kodeKJUTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                kodeKJUTextField3KeyPressed(evt);
+            }
+        });
+
         simpanButton.setBackground(new java.awt.Color(5, 84, 78));
         simpanButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         simpanButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -815,9 +1047,9 @@ public class Entry extends javax.swing.JFrame {
                                 .addGroup(jPanel4Layout.createSequentialGroup()
                                     .addComponent(noTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(kodeProvTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(kodeProvTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(kodeKabTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(kodeKabTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(kodeKecTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -869,9 +1101,9 @@ public class Entry extends javax.swing.JFrame {
                                 .addGroup(jPanel4Layout.createSequentialGroup()
                                     .addComponent(noTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(kodeProvTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(kodeProvTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(kodeKabTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(kodeKabTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(kodeKecTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1025,8 +1257,8 @@ public class Entry extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(noTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kodeProvTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kodeKabTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kodeProvTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kodeKabTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kodeKecTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kodeKJUTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(noUrutKabTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1047,8 +1279,8 @@ public class Entry extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(noTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kodeProvTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kodeKabTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kodeProvTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kodeKabTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kodeKecTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kodeKJUTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(noUrutKabTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1066,8 +1298,8 @@ public class Entry extends javax.swing.JFrame {
                     .addComponent(kehutananTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(perikananTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usahaUtamaTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
-                .addComponent(simpanButton)
+                .addGap(54, 54, 54)
+                .addComponent(simpanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(202, Short.MAX_VALUE))
         );
 
@@ -1087,8 +1319,21 @@ public class Entry extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void simpanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanButtonActionPerformed
+    private int i = 1;
+    
+    public void simpanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanButtonActionPerformed
         // TODO add your handling code here:
+        
+        if (i == 1) {
+            simpanBaris1();
+        } else if (i == 2) {
+            simpanBaris2();
+        } else if(i == 3) {
+            simpanBaris3();
+        }      
+    }//GEN-LAST:event_simpanButtonActionPerformed
+
+    private void simpanBaris1() {
         CompanyForm cf = new CompanyForm();
         Company c1 = new Company();
         KIP kip = new KIP();
@@ -1121,17 +1366,327 @@ public class Entry extends javax.swing.JFrame {
         c1.setPerikanan(perikananTextField.getText());
         c1.setInputUsahaUtama(usahaUtamaTextField.getText());
 
-        try {
-            Database.getInstance().insertCompany(cf, c1, kip, b1);
-            //  clearForm();
-            JOptionPane.showMessageDialog(this, "Sukses Tersimpan");
-        } catch (java.sql.SQLException ex) {
-            System.err. println(ex);
-            JOptionPane.showMessageDialog(this, "Gagal menyimpan data",
-                "Gagal", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_simpanButtonActionPerformed
+           //Validasi
+           String namaprov = (String) namaProvComboBox.getSelectedItem();
+           String namakab = (String) namaKabComboBox.getSelectedItem();
+           Integer periode = Integer.parseInt(periodeDataTextField.getText());
+           Integer no = Integer.parseInt(noTextField.getText());
+           String kodeprov = kodeProvTextField.getText();
+           String kodekab = kodeKabTextField.getText();
+           String kodekec = kodeKecTextField.getText();
+           String kodekju = kodeKJUTextField.getText();
+           String nourutkab = noUrutKabTextField.getText();
+           String namaperusahaan = namaPerusahaanTextField.getText();
+           String alamatperusahaan = alamatPerusahaanTextField.getText();
+           String notelp = noTelpTextField.getText();
+           String nofax = noFaxTextField.getText();
+           Integer badanhukum = Integer.parseInt(badanHukumTextField.getText());
+           Integer konfirm = Integer.parseInt(konfirmTextField.getText());
+           Integer status = Integer.parseInt(statusTextField.getText());
+           String tanamanpangan= tanamanPanganTextField.getText();
+           String holti = holtikulturaTextField.getText();
+           String kebun = perkebunanTextField.getText();
+           String ternak = peternakanTextField.getText();
+           String hutan = kehutananTextField.getText();
+           String ikan = perikananTextField.getText();
+           String usahautama = usahaUtamaTextField.getText();
+           boolean check = true;
+           
+           if(periodeDataTextField.getText().isEmpty()){
+               JOptionPane.showMessageDialog(this, "Periode Data tidak boleh kosong","Warning",JOptionPane.WARNING_MESSAGE);
+               periodeDataTextField.requestFocus();
+           }else if(namaperusahaan.isEmpty()){
+               JOptionPane.showMessageDialog(this, "Nama Perusahaan tidak boleh kosong","Warning",JOptionPane.WARNING_MESSAGE);
+               namaPerusahaanTextField.requestFocusInWindow();
+           }else if(kodekju.isEmpty()){
+                JOptionPane.showMessageDialog(this, "Kode Identitas Perusahaan tidak boleh kosong","Warning",JOptionPane.WARNING_MESSAGE);
+               kodeKJUTextField.requestFocusInWindow();
+           }else if(kodeprov.length() != 2 || kodekab.length() != 2 || kodekec.length() != 3){
+               JOptionPane.showMessageDialog(this, "Invalid kode daerah","Warning",JOptionPane.WARNING_MESSAGE);
+               kodeProvTextField.requestFocusInWindow();
+               kodeKabTextField.requestFocusInWindow();
+               kodeKecTextField.requestFocusInWindow();
+           }else if(!(usahautama.contains(kodekju))){
+               JOptionPane.showMessageDialog(this, "Kode KJU harus sesuai dengan kode usaha utama","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((tanamanpangan.equals("1"))||(tanamanpangan.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Tanaman Pangan hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((holti.equals("1"))||(holti.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Holtikultura  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((kebun.equals("1"))||(kebun.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Perkebunan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((ternak.equals("1"))||(ternak.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Pertenakan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((hutan.equals("1"))||(hutan.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Kehutanan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((ikan.equals("1"))||(ikan.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Perikanan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((holti.equals("1"))||(holti.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Holtikultura  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((konfirm.equals(1))||(konfirm.equals(0)))){
+               JOptionPane.showMessageDialog(this, "Keterangan pencacahan dengan kuisioner rutin/dpp hanya berisika 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((badanhukum.equals(0))||(badanhukum.equals(1))
+                   ||(badanhukum.equals(2))||(badanhukum.equals(3))
+                   ||(badanhukum.equals(4))||(badanhukum.equals(5))
+                   ||(badanhukum.equals(6))||(badanhukum.equals(7))
+                   ||(badanhukum.equals(8))||(badanhukum.equals(9)))
+                   ||(badanhukum.equals(10))){
+               JOptionPane.showMessageDialog(this, "Kode Badan Hukum hanya ada 1 sampai 10","Warning",JOptionPane.WARNING_MESSAGE);
+           } else if(!((status.equals(0))||(status.equals(1))
+                   ||(status.equals(2))||(status.equals(3))
+                   ||(status.equals(4))||(status.equals(5))
+                   ||(status.equals(6))||(status.equals(7))
+                   ||(status.equals(8))||(status.equals(9)))){
+               JOptionPane.showMessageDialog(this, "Kode Status hanya ada 1 sampai 9","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!(periode >= 1945 && periode <= 2025)){
+               JOptionPane.showMessageDialog(this, "Periode tahun 1945 sampai 2025","Warning",JOptionPane.WARNING_MESSAGE);
+           }else{
+                try {
+                Database.getInstance().insertCompany(cf, c1, kip, b1);
+                JOptionPane.showMessageDialog(this, "Data Baris 1 Sukses Tersimpan");
+                i = 2;
+                } catch (java.sql.SQLException ex) {
+                System.err. println(ex);
+                JOptionPane.showMessageDialog(this, "Gagal menyimpan data", "Gagal", JOptionPane.ERROR_MESSAGE);
+                }
+           }
+    }
+    
+    private void simpanBaris2() {
+        CompanyForm cf = new CompanyForm();
+        Company c1 = new Company();
+        KIP kip = new KIP();
+        BadanHukum b1 = new BadanHukum();
 
+        //      Set company untuk form
+        cf.setCompany(c1);
+        //Entri Data untuk form
+        cf.setNamaProv(namaProvComboBox.getSelectedItem().toString());
+        cf.setNamaKab(namaKabComboBox.getSelectedItem().toString());
+        cf.setPeriodeData(Integer.parseInt(periodeDataTextField.getText()));
+        c1.setNo(Integer.parseInt(noTextField2.getText()));
+        cf.setKodeProv(kodeProvTextField2.getText());
+        cf.setKodeKab(kodeKabTextField2.getText());
+        kip.setKodeKec(kodeKecTextField2.getText());
+        kip.setKodeKJU(kodeKJUTextField2.getText());
+        kip.setNoUrutKab(Integer.parseInt(noUrutKabTextField2.getText()));
+        c1.setNamaPerusahaan(namaPerusahaanTextField2.getText());
+        c1.setAlamatPerusahaan(alamatPerusahaanTextField2.getText());
+        c1.setNoTelp(noTelpTextField2.getText());
+        c1.setNoFax(noFaxTextField2.getText());
+        b1.setKode(Integer.parseInt(badanHukumTextField2.getText()));
+        c1.setKonfirm(Integer.parseInt(konfirmTextField2.getText()));
+        c1.setStatus(Integer.parseInt(statusTextField2.getText()));
+        c1.setTanamanPangan(tanamanPanganTextField2.getText());
+        c1.setHoltikultura(holtikulturaTextField2.getText());
+        c1.setPerkebunan(perkebunanTextField2.getText());
+        c1.setPeternakan(peternakanTextField2.getText());
+        c1.setKehutanan(kehutananTextField2.getText());
+        c1.setPerikanan(perikananTextField2.getText());
+        c1.setInputUsahaUtama(usahaUtamaTextField2.getText());
+
+           //Validasi
+           String namaprov = (String) namaProvComboBox.getSelectedItem();
+           String namakab = (String) namaKabComboBox.getSelectedItem();
+           Integer periode = Integer.parseInt(periodeDataTextField.getText());
+           Integer no = Integer.parseInt(noTextField2.getText());
+           String kodeprov = kodeProvTextField2.getText();
+           String kodekab = kodeKabTextField2.getText();
+           String kodekec = kodeKecTextField2.getText();
+           String kodekju = kodeKJUTextField2.getText();
+           String nourutkab = noUrutKabTextField2.getText();
+           String namaperusahaan = namaPerusahaanTextField2.getText();
+           String alamatperusahaan = alamatPerusahaanTextField2.getText();
+           String notelp = noTelpTextField2.getText();
+           String nofax = noFaxTextField2.getText();
+           Integer badanhukum = Integer.parseInt(badanHukumTextField2.getText());
+           Integer konfirm = Integer.parseInt(konfirmTextField2.getText());
+           Integer status = Integer.parseInt(statusTextField2.getText());
+           String tanamanpangan= tanamanPanganTextField2.getText();
+           String holti = holtikulturaTextField2.getText();
+           String kebun = perkebunanTextField2.getText();
+           String ternak = peternakanTextField2.getText();
+           String hutan = kehutananTextField2.getText();
+           String ikan = perikananTextField2.getText();
+           String usahautama = usahaUtamaTextField2.getText();
+           boolean check = true;
+           //Validasi nama
+           if(namaperusahaan.isEmpty()){
+               JOptionPane.showMessageDialog(this, "Nama Perusahaan tidak boleh kosong","Warning",JOptionPane.WARNING_MESSAGE);
+               namaPerusahaanTextField2.requestFocusInWindow();
+           }else if(kodekju.isEmpty()){
+                JOptionPane.showMessageDialog(this, "Kode Identitas Perusahaan tidak boleh kosong","Warning",JOptionPane.WARNING_MESSAGE);
+               kodeKJUTextField2.requestFocusInWindow();
+           }else if(kodeprov.length() != 2 || kodekab.length() != 2 || kodekec.length() != 3){
+               JOptionPane.showMessageDialog(this, "Invalid kode daerah","Warning",JOptionPane.WARNING_MESSAGE);
+               kodeProvTextField2.requestFocusInWindow();
+               kodeKabTextField2.requestFocusInWindow();
+               kodeKecTextField2.requestFocusInWindow();
+           }else if(!(usahautama.contains(kodekju))){
+               JOptionPane.showMessageDialog(this, "Kode KJU harus sesuai dengan kode usaha utama","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((tanamanpangan.equals("1"))||(tanamanpangan.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Tanaman Pangan hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((holti.equals("1"))||(holti.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Holtikultura  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((kebun.equals("1"))||(kebun.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Perkebunan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((ternak.equals("1"))||(ternak.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Pertenakan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((hutan.equals("1"))||(hutan.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Kehutanan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((ikan.equals("1"))||(ikan.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Perikanan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((holti.equals("1"))||(holti.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Holtikultura  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((konfirm.equals(1))||(konfirm.equals(0)))){
+               JOptionPane.showMessageDialog(this, "Keterangan pencacahan dengan kuisioner rutin/dpp hanya berisika 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((badanhukum.equals(0))||(badanhukum.equals(1))
+                   ||(badanhukum.equals(2))||(badanhukum.equals(3))
+                   ||(badanhukum.equals(4))||(badanhukum.equals(5))
+                   ||(badanhukum.equals(6))||(badanhukum.equals(7))
+                   ||(badanhukum.equals(8))||(badanhukum.equals(9)))
+                   ||(badanhukum.equals(10))){
+               JOptionPane.showMessageDialog(this, "Kode Badan Hukum hanya ada 1 sampai 10","Warning",JOptionPane.WARNING_MESSAGE);
+           } else if(!((status.equals(0))||(status.equals(1))
+                   ||(status.equals(2))||(status.equals(3))
+                   ||(status.equals(4))||(status.equals(5))
+                   ||(status.equals(6))||(status.equals(7))
+                   ||(status.equals(8))||(status.equals(9)))){
+               JOptionPane.showMessageDialog(this, "Kode Status hanya ada 1 sampai 9","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!(periode >= 1945 && periode <= 2025)){
+               JOptionPane.showMessageDialog(this, "Periode tahun 1945 sampai 2025","Warning",JOptionPane.WARNING_MESSAGE);
+           }else{
+                try {
+                Database.getInstance().insertCompany(cf, c1, kip, b1);
+                JOptionPane.showMessageDialog(this, "Data Baris 2 Sukses Tersimpan");
+                i = 3;
+                } catch (java.sql.SQLException ex) {
+                System.err. println(ex);
+                JOptionPane.showMessageDialog(this, "Gagal menyimpan data",
+                "Gagal", JOptionPane.ERROR_MESSAGE);
+                }
+           }
+    }
+    
+    private void simpanBaris3() {
+        CompanyForm cf = new CompanyForm();
+        Company c1 = new Company();
+        KIP kip = new KIP();
+        BadanHukum b1 = new BadanHukum();
+
+        //      Set company untuk form
+        cf.setCompany(c1);
+        //Entri Data untuk form
+        cf.setNamaProv(namaProvComboBox.getSelectedItem().toString());
+        cf.setNamaKab(namaKabComboBox.getSelectedItem().toString());
+        cf.setPeriodeData(Integer.parseInt(periodeDataTextField.getText()));
+        c1.setNo(Integer.parseInt(noTextField3.getText()));
+        cf.setKodeProv(kodeProvTextField3.getText());
+        cf.setKodeKab(kodeKabTextField3.getText());
+        kip.setKodeKec(kodeKecTextField3.getText());
+        kip.setKodeKJU(kodeKJUTextField3.getText());
+        kip.setNoUrutKab(Integer.parseInt(noUrutKabTextField3.getText()));
+        c1.setNamaPerusahaan(namaPerusahaanTextField3.getText());
+        c1.setAlamatPerusahaan(alamatPerusahaanTextField3.getText());
+        c1.setNoTelp(noTelpTextField3.getText());
+        c1.setNoFax(noFaxTextField3.getText());
+        b1.setKode(Integer.parseInt(badanHukumTextField3.getText()));
+        c1.setKonfirm(Integer.parseInt(konfirmTextField3.getText()));
+        c1.setStatus(Integer.parseInt(statusTextField3.getText()));
+        c1.setTanamanPangan(tanamanPanganTextField3.getText());
+        c1.setHoltikultura(holtikulturaTextField3.getText());
+        c1.setPerkebunan(perkebunanTextField3.getText());
+        c1.setPeternakan(peternakanTextField3.getText());
+        c1.setKehutanan(kehutananTextField3.getText());
+        c1.setPerikanan(perikananTextField3.getText());
+        c1.setInputUsahaUtama(usahaUtamaTextField3.getText());
+
+           //Validasi
+           String namaprov = (String) namaProvComboBox.getSelectedItem();
+           String namakab = (String) namaKabComboBox.getSelectedItem();
+           Integer periode = Integer.parseInt(periodeDataTextField.getText());
+           Integer no = Integer.parseInt(noTextField3.getText());
+           String kodeprov = kodeProvTextField3.getText();
+           String kodekab = kodeKabTextField3.getText();
+           String kodekec = kodeKecTextField3.getText();
+           String kodekju = kodeKJUTextField3.getText();
+           String nourutkab = noUrutKabTextField3.getText();
+           String namaperusahaan = namaPerusahaanTextField3.getText();
+           String alamatperusahaan = alamatPerusahaanTextField3.getText();
+           String notelp = noTelpTextField3.getText();
+           String nofax = noFaxTextField3.getText();
+           Integer badanhukum = Integer.parseInt(badanHukumTextField3.getText());
+           Integer konfirm = Integer.parseInt(konfirmTextField3.getText());
+           Integer status = Integer.parseInt(statusTextField3.getText());
+           String tanamanpangan= tanamanPanganTextField3.getText();
+           String holti = holtikulturaTextField3.getText();
+           String kebun = perkebunanTextField3.getText();
+           String ternak = peternakanTextField3.getText();
+           String hutan = kehutananTextField3.getText();
+           String ikan = perikananTextField3.getText();
+           String usahautama = usahaUtamaTextField3.getText();
+           boolean check = true;
+           //Validasi nama
+           if(namaperusahaan.isEmpty()){
+               JOptionPane.showMessageDialog(this, "Nama Perusahaan tidak boleh kosong","Warning",JOptionPane.WARNING_MESSAGE);
+               namaPerusahaanTextField3.requestFocusInWindow();
+           }else if(kodekju.isEmpty()){
+                JOptionPane.showMessageDialog(this, "Kode Identitas Perusahaan tidak boleh kosong","Warning",JOptionPane.WARNING_MESSAGE);
+               kodeKJUTextField3.requestFocusInWindow();
+           }else if(kodeprov.length() != 2 || kodekab.length() != 2 || kodekec.length() != 3){
+               JOptionPane.showMessageDialog(this, "Invalid kode daerah","Warning",JOptionPane.WARNING_MESSAGE);
+               kodeProvTextField3.requestFocusInWindow();
+               kodeKabTextField3.requestFocusInWindow();
+               kodeKecTextField3.requestFocusInWindow();
+           }else if(!(usahautama.contains(kodekju))){
+               JOptionPane.showMessageDialog(this, "Kode KJU harus sesuai dengan kode usaha utama","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((tanamanpangan.equals("1"))||(tanamanpangan.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Tanaman Pangan hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((holti.equals("1"))||(holti.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Holtikultura  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((kebun.equals("1"))||(kebun.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Perkebunan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((ternak.equals("1"))||(ternak.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Pertenakan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((hutan.equals("1"))||(hutan.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Kehutanan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((ikan.equals("1"))||(ikan.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Perikanan  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((holti.equals("1"))||(holti.equals("0")))){
+                JOptionPane.showMessageDialog(this, "Subsektor Holtikultura  hanya berisikan 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((konfirm.equals(1))||(konfirm.equals(0)))){
+               JOptionPane.showMessageDialog(this, "Keterangan pencacahan dengan kuisioner rutin/dpp hanya berisika 1 atau 0","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!((badanhukum.equals(0))||(badanhukum.equals(1))
+                   ||(badanhukum.equals(2))||(badanhukum.equals(3))
+                   ||(badanhukum.equals(4))||(badanhukum.equals(5))
+                   ||(badanhukum.equals(6))||(badanhukum.equals(7))
+                   ||(badanhukum.equals(8))||(badanhukum.equals(9)))
+                   ||(badanhukum.equals(10))){
+               JOptionPane.showMessageDialog(this, "Kode Badan Hukum hanya ada 1 sampai 10","Warning",JOptionPane.WARNING_MESSAGE);
+           } else if(!((status.equals(0))||(status.equals(1))
+                   ||(status.equals(2))||(status.equals(3))
+                   ||(status.equals(4))||(status.equals(5))
+                   ||(status.equals(6))||(status.equals(7))
+                   ||(status.equals(8))||(status.equals(9)))){
+               JOptionPane.showMessageDialog(this, "Kode Status hanya ada 1 sampai 9","Warning",JOptionPane.WARNING_MESSAGE);
+           }else if(!(periode >= 1945 && periode <= 2025)){
+               JOptionPane.showMessageDialog(this, "Periode tahun 1945 sampai 2025","Warning",JOptionPane.WARNING_MESSAGE);
+           }else{
+                try {
+                Database.getInstance().insertCompany(cf, c1, kip, b1);
+                //  clearForm();
+                JOptionPane.showMessageDialog(this, "Data Baris 3 Sukses Tersimpan");
+                i = 1;
+                Entry e = new Entry();
+                e.show();
+                dispose();
+                } catch (java.sql.SQLException ex) {
+                System.err. println(ex);
+                JOptionPane.showMessageDialog(this, "Gagal menyimpan data",
+                    "Gagal", JOptionPane.ERROR_MESSAGE);
+                }
+            }        
+    }
+    
     private void berandaPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_berandaPanelMouseClicked
         // TODO add your handling code here:
         Beranda b = new Beranda();
@@ -1162,6 +1717,7 @@ public class Entry extends javax.swing.JFrame {
 
     private void periodeDataTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_periodeDataTextFieldActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_periodeDataTextFieldActionPerformed
 
     private void namaProvComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaProvComboBoxActionPerformed
@@ -1178,6 +1734,8 @@ public class Entry extends javax.swing.JFrame {
         //Otomatis set text field kode prov
         kodeProvTextField.setText(Integer.toString(qw.getProvId((String) namaProvComboBox.getSelectedItem())));
         kodeProvTextField1.setText(Integer.toString(qw.getProvId((String) namaProvComboBox.getSelectedItem())));
+        kodeProvTextField2.setText(Integer.toString(qw.getProvId((String) namaProvComboBox.getSelectedItem())));
+        kodeProvTextField3.setText(Integer.toString(qw.getProvId((String) namaProvComboBox.getSelectedItem())));
     }//GEN-LAST:event_namaProvComboBoxActionPerformed
 
     private void namaKabComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaKabComboBoxActionPerformed
@@ -1186,6 +1744,8 @@ public class Entry extends javax.swing.JFrame {
         //Otomatis set text field kode kab
         kodeKabTextField.setText(Integer.toString(qw.getKabKotId((String) namaKabComboBox.getSelectedItem())).substring(2, 4));
         kodeKabTextField1.setText(Integer.toString(qw.getKabKotId((String) namaKabComboBox.getSelectedItem())).substring(2, 4));
+        kodeKabTextField2.setText(Integer.toString(qw.getKabKotId((String) namaKabComboBox.getSelectedItem())).substring(2, 4));
+        kodeKabTextField3.setText(Integer.toString(qw.getKabKotId((String) namaKabComboBox.getSelectedItem())).substring(2, 4));
     }//GEN-LAST:event_namaKabComboBoxActionPerformed
 
     private void noTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noTextFieldKeyPressed
@@ -1334,10 +1894,312 @@ public class Entry extends javax.swing.JFrame {
 
     private void keluarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_keluarPanelMouseClicked
         // TODO add your handling code here:
-        LoginForm l = new LoginForm();
-        l.show();
-        dispose(); 
+        if(JOptionPane.showConfirmDialog(null,"Apakah Anda Yakin Keluar ?","Keluar",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
     }//GEN-LAST:event_keluarPanelMouseClicked
+
+    private void periodeDataTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_periodeDataTextFieldKeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            noTextField.requestFocus();
+        }
+    }//GEN-LAST:event_periodeDataTextFieldKeyPressed
+
+    private void noTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            kodeKecTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_noTextField2KeyPressed
+
+    private void kodeProvTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kodeProvTextField2KeyPressed
+    }//GEN-LAST:event_kodeProvTextField2KeyPressed
+
+    private void kodeKabTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kodeKabTextField2KeyPressed
+    }//GEN-LAST:event_kodeKabTextField2KeyPressed
+
+    private void kodeKecTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kodeKecTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            kodeKJUTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_kodeKecTextField2KeyPressed
+
+    private void kodeKJUTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kodeKJUTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            noUrutKabTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_kodeKJUTextField2KeyPressed
+
+    private void noUrutKabTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noUrutKabTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            namaPerusahaanTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_noUrutKabTextField2KeyPressed
+
+    private void namaPerusahaanTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_namaPerusahaanTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            alamatPerusahaanTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_namaPerusahaanTextField2KeyPressed
+
+    private void alamatPerusahaanTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_alamatPerusahaanTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            noTelpTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_alamatPerusahaanTextField2KeyPressed
+
+    private void noTelpTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noTelpTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            noFaxTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_noTelpTextField2KeyPressed
+
+    private void noFaxTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noFaxTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            badanHukumTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_noFaxTextField2KeyPressed
+
+    private void badanHukumTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_badanHukumTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            konfirmTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_badanHukumTextField2KeyPressed
+
+    private void konfirmTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_konfirmTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            statusTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_konfirmTextField2KeyPressed
+
+    private void statusTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_statusTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            tanamanPanganTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_statusTextField2KeyPressed
+
+    private void tanamanPanganTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tanamanPanganTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            holtikulturaTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_tanamanPanganTextField2KeyPressed
+
+    private void holtikulturaTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_holtikulturaTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            perkebunanTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_holtikulturaTextField2KeyPressed
+
+    private void perkebunanTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perkebunanTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            peternakanTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_perkebunanTextField2KeyPressed
+
+    private void peternakanTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_peternakanTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            kehutananTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_peternakanTextField2KeyPressed
+
+    private void kehutananTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kehutananTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            perikananTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_kehutananTextField2KeyPressed
+
+    private void perikananTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perikananTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            usahaUtamaTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_perikananTextField2KeyPressed
+
+    private void usahaUtamaTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usahaUtamaTextField2KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            simpanButton.requestFocus();
+        }
+    }//GEN-LAST:event_usahaUtamaTextField2KeyPressed
+
+    private void noTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            kodeKecTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_noTextField3KeyPressed
+
+    private void kodeKecTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kodeKecTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            kodeKJUTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_kodeKecTextField3KeyPressed
+
+    private void kodeKJUTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kodeKJUTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            noUrutKabTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_kodeKJUTextField3KeyPressed
+
+    private void noUrutKabTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noUrutKabTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            namaPerusahaanTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_noUrutKabTextField3KeyPressed
+
+    private void namaPerusahaanTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_namaPerusahaanTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            alamatPerusahaanTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_namaPerusahaanTextField3KeyPressed
+
+    private void alamatPerusahaanTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_alamatPerusahaanTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            noTelpTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_alamatPerusahaanTextField3KeyPressed
+
+    private void noTelpTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noTelpTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            noFaxTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_noTelpTextField3KeyPressed
+
+    private void noFaxTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noFaxTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            badanHukumTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_noFaxTextField3KeyPressed
+
+    private void badanHukumTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_badanHukumTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            konfirmTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_badanHukumTextField3KeyPressed
+
+    private void konfirmTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_konfirmTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            statusTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_konfirmTextField3KeyPressed
+
+    private void statusTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_statusTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            tanamanPanganTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_statusTextField3KeyPressed
+
+    private void tanamanPanganTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tanamanPanganTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            holtikulturaTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_tanamanPanganTextField3KeyPressed
+
+    private void holtikulturaTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_holtikulturaTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            perkebunanTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_holtikulturaTextField3KeyPressed
+
+    private void perkebunanTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perkebunanTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            peternakanTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_perkebunanTextField3KeyPressed
+
+    private void peternakanTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_peternakanTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            kehutananTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_peternakanTextField3KeyPressed
+
+    private void kehutananTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kehutananTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            perikananTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_kehutananTextField3KeyPressed
+
+    private void perikananTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perikananTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            usahaUtamaTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_perikananTextField3KeyPressed
+
+    private void usahaUtamaTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usahaUtamaTextField3KeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyCode();
+        if(key==10) {
+            simpanButton.requestFocus();
+        }
+    }//GEN-LAST:event_usahaUtamaTextField3KeyPressed
 
     
     
@@ -1367,6 +2229,7 @@ public class Entry extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1436,8 +2299,8 @@ public class Entry extends javax.swing.JFrame {
     private javax.swing.JLabel kodeKabLabel;
     private javax.swing.JTextField kodeKabTextField;
     private javax.swing.JTextField kodeKabTextField1;
+    private javax.swing.JTextField kodeKabTextField2;
     private javax.swing.JTextField kodeKabTextField3;
-    private javax.swing.JTextField kodeKabTextField4;
     private javax.swing.JLabel kodeKecLabel;
     private javax.swing.JTextField kodeKecTextField;
     private javax.swing.JTextField kodeKecTextField2;
@@ -1445,8 +2308,8 @@ public class Entry extends javax.swing.JFrame {
     private javax.swing.JLabel kodeProvLabel;
     private javax.swing.JTextField kodeProvTextField;
     private javax.swing.JTextField kodeProvTextField1;
+    private javax.swing.JTextField kodeProvTextField2;
     private javax.swing.JTextField kodeProvTextField3;
-    private javax.swing.JTextField kodeProvTextField4;
     private javax.swing.JTextField konfirmTextField;
     private javax.swing.JTextField konfirmTextField2;
     private javax.swing.JTextField konfirmTextField3;

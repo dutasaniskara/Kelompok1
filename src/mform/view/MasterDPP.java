@@ -4,12 +4,24 @@
  */
 package mform.view;
 
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import mform.QueryWilayah;
 import mform.db.Database;
 import mform.model.BadanHukum;
 import mform.model.Company;
 import mform.model.KIP;
 import mform.form.CompanyForm;
+import mform.model.Export;
+import mform.model.KabKot;
+import mform.model.Koneksi;
 /**
  *
  * @author duta
@@ -21,6 +33,7 @@ public class MasterDPP extends javax.swing.JFrame {
      */
     public MasterDPP() {
         initComponents();
+        loadTable();
     }
 
     /**
@@ -46,6 +59,9 @@ public class MasterDPP extends javax.swing.JFrame {
         berandaPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelDisplay = new javax.swing.JTable();
+        exportTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,9 +89,9 @@ public class MasterDPP extends javax.swing.JFrame {
         );
 
         keluarPanel.setPreferredSize(new java.awt.Dimension(200, 50));
-        keluarPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                keluarPanelMouseClicked(evt);
+        keluarPanel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                keluarPanelKeyPressed(evt);
             }
         });
 
@@ -219,6 +235,26 @@ public class MasterDPP extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Tampilan data yang telah di entri");
 
+        tabelDisplay.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nama Perusahaan", "Alamat", "Nomor Telepon", "Jenis Usaha Utama"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelDisplay);
+
+        exportTable.setText("Export to CSV");
+        exportTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -239,7 +275,13 @@ public class MasterDPP extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(526, 526, 526))
+                .addGap(525, 525, 525))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(exportTable)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,9 +293,13 @@ public class MasterDPP extends javax.swing.JFrame {
                     .addComponent(masterDPPPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(entryPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel7)
-                .addContainerGap(639, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(exportTable, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -300,12 +346,17 @@ public class MasterDPP extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_masterDPPPanelMouseClicked
 
-    private void keluarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_keluarPanelMouseClicked
+    private void keluarPanelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keluarPanelKeyPressed
         // TODO add your handling code here:
-        LoginForm l = new LoginForm();
-        l.show();
-        dispose(); 
-    }//GEN-LAST:event_keluarPanelMouseClicked
+        if(JOptionPane.showConfirmDialog(null,"Apakah Anda Yakin Keluar ?","Keluar",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+            System.exit(0);
+        }        
+    }//GEN-LAST:event_keluarPanelKeyPressed
+
+    private void exportTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTableActionPerformed
+        Export excel = new Export();
+        excel.saveCSV(tabelDisplay);
+    }//GEN-LAST:event_exportTableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -348,6 +399,7 @@ public class MasterDPP extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel berandaPanel;
     private javax.swing.JPanel entryPanel;
+    private javax.swing.JButton exportTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -357,8 +409,36 @@ public class MasterDPP extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel keluarPanel;
     private javax.swing.JPanel laporanPanel;
     private javax.swing.JPanel masterDPPPanel;
+    private javax.swing.JTable tabelDisplay;
     // End of variables declaration//GEN-END:variables
+
+    private void loadTable() {
+        
+        try {
+           Koneksi connection = new Koneksi();   
+           Statement stat = connection.getKoneksi().createStatement();
+           String sql  = "Select * from perusahaan";
+           ResultSet res   = stat.executeQuery(sql);
+           DefaultTableModel dtm = (DefaultTableModel) tabelDisplay.getModel();
+           dtm.getDataVector( ).removeAllElements( );
+           dtm.fireTableDataChanged( );
+           
+           while(res.next ()){
+                Object[] obj = new Object[5];
+                
+                obj[0] = res.getString("namaPerusahaan"); 
+                obj[1] = res.getString("alamatPerusahaan"); 
+                obj[2] = res.getString("noTelp"); 
+                obj[3] = res.getString("inputUsahaUtama");
+                        
+                dtm.addRow(obj);
+            }
+        } catch(SQLException err){
+            JOptionPane.showMessageDialog(null, err.getMessage() );
+      }
+    }
 }

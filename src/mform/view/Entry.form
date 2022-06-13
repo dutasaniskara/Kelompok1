@@ -260,9 +260,9 @@
                                   <Group type="102" attributes="0">
                                       <Component id="noTextField3" min="-2" pref="40" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="kodeProvTextField4" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="kodeProvTextField3" min="-2" pref="40" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="kodeKabTextField4" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="kodeKabTextField3" min="-2" pref="40" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="kodeKecTextField3" min="-2" pref="40" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -319,9 +319,9 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="noTextField2" min="-2" pref="40" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="kodeProvTextField3" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="kodeProvTextField2" min="-2" pref="40" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="kodeKabTextField3" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="kodeKabTextField2" min="-2" pref="40" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="kodeKecTextField2" min="-2" pref="40" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -499,8 +499,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
                       <Component id="noTextField2" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="kodeProvTextField3" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="kodeKabTextField3" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="kodeProvTextField2" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="kodeKabTextField2" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="kodeKecTextField2" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="kodeKJUTextField2" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="noUrutKabTextField2" alignment="2" min="-2" max="-2" attributes="0"/>
@@ -522,8 +522,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
                       <Component id="noTextField3" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="kodeProvTextField4" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="kodeKabTextField4" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="kodeProvTextField3" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="kodeKabTextField3" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="kodeKecTextField3" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="kodeKJUTextField3" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="noUrutKabTextField3" alignment="2" min="-2" max="-2" attributes="0"/>
@@ -542,8 +542,8 @@
                       <Component id="perikananTextField3" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="usahaUtamaTextField3" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                  <Component id="simpanButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <Component id="simpanButton" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace pref="202" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -842,6 +842,7 @@
         <Component class="javax.swing.JTextField" name="periodeDataTextField">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="periodeDataTextFieldActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="periodeDataTextFieldKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="namaProvLabel">
@@ -1318,84 +1319,198 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="noTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="noTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="kodeProvTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="kodeProvTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="kodeKabTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="kodeKabTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="kodeKecTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="kodeKecTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="kodeKJUTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="kodeKJUTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="noUrutKabTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="noUrutKabTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="namaPerusahaanTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="namaPerusahaanTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="alamatPerusahaanTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="alamatPerusahaanTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="noTelpTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="noTelpTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="noFaxTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="noFaxTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="badanHukumTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="badanHukumTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="konfirmTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="konfirmTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="statusTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="statusTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tanamanPanganTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tanamanPanganTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="holtikulturaTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="holtikulturaTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="perkebunanTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="perkebunanTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="peternakanTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="peternakanTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="kehutananTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="kehutananTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="perikananTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="perikananTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="usahaUtamaTextField2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="usahaUtamaTextField2KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="alamatPerusahaanTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="alamatPerusahaanTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="statusTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="statusTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="noFaxTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="noFaxTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="noTelpTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="noTelpTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="noUrutKabTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="noUrutKabTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="namaPerusahaanTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="namaPerusahaanTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="peternakanTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="peternakanTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="kehutananTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="kehutananTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="holtikulturaTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="holtikulturaTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tanamanPanganTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tanamanPanganTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="perikananTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="perikananTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="badanHukumTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="badanHukumTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="perkebunanTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="perkebunanTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="konfirmTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="konfirmTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="usahaUtamaTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="usahaUtamaTextField3KeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="noTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="noTextField3KeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="kodeProvTextField3">
         </Component>
         <Component class="javax.swing.JTextField" name="kodeKabTextField3">
         </Component>
-        <Component class="javax.swing.JTextField" name="kodeKecTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="kodeKJUTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="noUrutKabTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="namaPerusahaanTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="alamatPerusahaanTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="noTelpTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="noFaxTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="badanHukumTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="konfirmTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="statusTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="tanamanPanganTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="holtikulturaTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="perkebunanTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="peternakanTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="kehutananTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="perikananTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="usahaUtamaTextField2">
-        </Component>
-        <Component class="javax.swing.JTextField" name="alamatPerusahaanTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="statusTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="noFaxTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="noTelpTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="noUrutKabTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="namaPerusahaanTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="peternakanTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="kehutananTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="holtikulturaTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="tanamanPanganTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="perikananTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="badanHukumTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="perkebunanTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="konfirmTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="usahaUtamaTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="noTextField3">
-        </Component>
-        <Component class="javax.swing.JTextField" name="kodeProvTextField4">
-        </Component>
-        <Component class="javax.swing.JTextField" name="kodeKabTextField4">
-        </Component>
         <Component class="javax.swing.JTextField" name="kodeKecTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="kodeKecTextField3KeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="kodeKJUTextField3">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="kodeKJUTextField3KeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="simpanButton">
           <Properties>
