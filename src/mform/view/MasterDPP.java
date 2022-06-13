@@ -250,16 +250,16 @@ public class MasterDPP extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelDisplay);
 
-        exportTable.setText("All Column");
+        exportTable.setText("Semua Kolom");
         exportTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportTableActionPerformed(evt);
             }
         });
 
-        jLabel8.setText("Eksport to CSV");
+        jLabel8.setText("Ekspor ke CSV");
 
-        exportTable1.setText("This Column");
+        exportTable1.setText("Kolom ini");
         exportTable1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportTable1ActionPerformed(evt);
@@ -288,7 +288,7 @@ public class MasterDPP extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(exportTable1)
+                        .addComponent(exportTable1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(exportTable)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
