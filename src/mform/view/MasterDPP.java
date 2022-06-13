@@ -354,8 +354,8 @@ public class MasterDPP extends javax.swing.JFrame {
     }//GEN-LAST:event_keluarPanelKeyPressed
 
     private void exportTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTableActionPerformed
-        Export excel = new Export();
-        excel.saveCSV(tabelDisplay);
+        Export excel = new Export();;
+        excel.export(tabelDisplay);
     }//GEN-LAST:event_exportTableActionPerformed
 
     /**
